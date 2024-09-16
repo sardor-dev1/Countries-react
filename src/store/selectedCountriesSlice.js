@@ -31,7 +31,7 @@ const selectedCountriesSlice = createSlice({
       const country = action.payload;
       if (!state.selectedCountries.some((c) => c.cca2 === country.cca2)) {
         state.selectedCountries.push(country);
-        saveToLocalStorage(state.selectedCountries); 
+        saveToLocalStorage(state.selectedCountries);
       }
     },
     removeSelectedCountry: (state, action) => {
@@ -39,7 +39,7 @@ const selectedCountriesSlice = createSlice({
       state.selectedCountries = state.selectedCountries.filter(
         (country) => country.cca2 !== countryCode
       );
-      saveToLocalStorage(state.selectedCountries); 
+      saveToLocalStorage(state.selectedCountries);
     },
   },
 });
