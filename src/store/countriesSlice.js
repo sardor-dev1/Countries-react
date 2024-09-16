@@ -1,7 +1,5 @@
-// store/countriesSlice.js
 import { createSlice } from "@reduxjs/toolkit";
 
-// Load selected countries from localStorage
 const loadSelectedCountries = () => {
   const savedCountries = localStorage.getItem("selectedCountries");
   return savedCountries ? JSON.parse(savedCountries) : [];
@@ -9,7 +7,7 @@ const loadSelectedCountries = () => {
 
 const initialState = {
   countries: [],
-  selectedCountries: loadSelectedCountries() || [], // Ensure it's an empty array if not available
+  selectedCountries: loadSelectedCountries() || [], 
   loading: false,
   error: null,
 };

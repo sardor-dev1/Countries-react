@@ -16,7 +16,7 @@ export function DrawerComponent({
                 <img
                   src={country.flagURL}
                   alt={`${country.name} flag`}
-                  className="w-8 h-8 rounded-full"
+                  className="w-20 h-20 rounded-md"
                 />
                 <span>{country.name}</span>
               </div>

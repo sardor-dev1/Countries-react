@@ -3,9 +3,8 @@
 @tailwind utilities;
 
 .hero {
-  background-image: url("/patt.avif");
+  background-image: url("https://img.freepik.com/free-photo/panorama-shot-canal-lake-pukaki-twisel-surrounded-with-mountains_181624-45343.jpg?w=1380&t=st=1726480219~exp=1726480819~hmac=adf0b3951e106178d4ecafc31909fe1abad91295c20a4445a58553a7018e8557");
 }
-
 .carousel-control-prev,
 .carousel-control-next {
   display: none;

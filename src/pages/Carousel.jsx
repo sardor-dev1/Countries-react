@@ -20,8 +20,8 @@ export default function Index() {
   const countryChunks = chunkArray(selectedCountries, 4);
 
   return (
-    <div>
-      <div className="w-[800px] mx-auto">
+    <div className="flex justify-center">
+      <div className="max-w-[1200px] w-full">
         <div className="h-40 sm:h-64 xl:h-80 2xl:h-96">
           <Carousel>
             {countryChunks.length > 0 ? (
@@ -36,7 +36,7 @@ export default function Index() {
                         <img
                         src={country.flagURL}
                         alt={`${country.name} flag`}
-                        className="w-[150px] object-contain h-[150px]"
+                        className="w-[200px] object-contain h-[150px]"
                       />
                       <p>{country.name}</p>
                       </div>

@@ -13,7 +13,6 @@ import {
 } from "chart.js";
 import { dataLine, options } from "./data";
 
-// Register the necessary chart.js components
 ChartJS.register(
   CategoryScale,
   LinearScale,
