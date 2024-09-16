@@ -1,8 +1,15 @@
+// store/countriesSlice.js
 import { createSlice } from "@reduxjs/toolkit";
+
+// Load selected countries from localStorage
+const loadSelectedCountries = () => {
+  const savedCountries = localStorage.getItem("selectedCountries");
+  return savedCountries ? JSON.parse(savedCountries) : [];
+};
 
 const initialState = {
   countries: [],
-  selectedCountries: [],
+  selectedCountries: loadSelectedCountries() || [], // Ensure it's an empty array if not available
   loading: false,
   error: null,
 };
@@ -22,16 +29,23 @@ const countriesSlice = createSlice({
     },
     selectCountry: (state, action) => {
       state.selectedCountries.push(action.payload);
+      localStorage.setItem(
+        "selectedCountries",
+        JSON.stringify(state.selectedCountries)
+      );
     },
     unSelectCountry: (state, action) => {
       state.selectedCountries = state.selectedCountries.filter(
         (country) => country.cca2 !== action.payload
       );
+      localStorage.setItem(
+        "selectedCountries",
+        JSON.stringify(state.selectedCountries)
+      );
     },
   },
 });
 
-export default countriesSlice.reducer;
 export const {
   setCountries,
   setLoading,
@@ -39,3 +53,5 @@ export const {
   selectCountry,
   unSelectCountry,
 } = countriesSlice.actions;
+
+export default countriesSlice.reducer;

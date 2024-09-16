@@ -21,11 +21,10 @@ import { customTheme } from "../components/CustomTheme";
 
 export default function Countries() {
   const [currentPage, setCurrentPage] = useState(1);
-
+  const dispatch = useDispatch();
   const { countries, loading, selectedCountries } = useSelector(
     (store) => store.countries
   );
-  const dispatch = useDispatch();
 
   useEffect(() => {
     async function fetchCountries() {
@@ -47,7 +46,7 @@ export default function Countries() {
     }
 
     fetchCountries();
-  }, []);
+  }, [dispatch]);
 
   function handleSelectCountry(country, selected) {
     const selectedCountry = {
@@ -115,14 +114,14 @@ export default function Countries() {
               })}
             </TableBody>
           </Table>
-
-          {/* Pagination should be outside the table */}
         </div>
-        <Pagination
-          currentPage={currentPage}
-          totalPages={100}
-          onPageChange={onPageChange}
-        />
+        <div className="w-full flex items-center justify-center mt-3 mb-5">
+          <Pagination
+            currentPage={currentPage}
+            totalPages={Math.ceil(countries.length / 10)}
+            onPageChange={onPageChange}
+          />
+        </div>
       </div>
     </>
   );
